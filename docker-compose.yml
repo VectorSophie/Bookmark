@@ -1,0 +1,15 @@
+services:
+  localdb:
+    container_name: bookmark
+    image: mysql:8.0
+    ports:
+      - 3309:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: bookdb
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --log_bin_trust_function_creators=1
+    volumes:
+      - ./mysql:/var/lib/mysql
